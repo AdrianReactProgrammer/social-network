@@ -19,7 +19,7 @@ import { useEffect } from 'react';
 import TestComponent from './components/TEST-COMPONENT/TestComponent';
 import News from './components/News/News';
 import store from './redux/redux-store';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 
@@ -77,11 +77,11 @@ let AppContainer = compose(
 
 let SocialNetworkApp = () => {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
