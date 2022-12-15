@@ -1,0 +1,71 @@
+.loginPage {
+    text-align: center;
+}
+
+.loginPage h1 {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.loginPage input {
+    margin-bottom: 5px;
+}
+
+.loginButton {
+    display: block;
+    margin: 20px auto;
+    font-size: large;
+    font-weight: 100;
+    width: 100px
+}
+
+.input {
+    display: block;
+    margin-top: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}
+
+
+
+.rememberMe {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rememberMeSpan {
+    margin-left: 10px
+}
+
+.logoutButton {
+    display: block;
+    margin: 20px auto;
+    width: 100px;
+    height: 40px;
+}
+
+.emailError {
+    margin-top: -5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    color: red;
+    border-right: 1px solid red;
+    border-bottom: 1px solid red;
+    border-left: 1px solid red;
+    width: 200px;
+}
+
+.passwordError {
+    margin-top: -5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    color: red;
+    border-right: 1px solid red;
+    border-bottom: 1px solid red;
+    border-left: 1px solid red;
+    width: 200px;
+}

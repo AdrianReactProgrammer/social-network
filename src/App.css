@@ -1,0 +1,32 @@
+.app-wrapper {
+  display: grid;
+
+  margin: 0 auto;
+  width: 1200px;
+
+  background-color: rgb(244, 244, 244);
+
+  grid-template-areas:
+    "h h "
+    "n c ";
+
+  grid-template-rows: 80px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+}
+
+.app-wrapper-content {
+  grid-area: c;
+  background-color: #fff;
+  border: 1px solid gray;
+  border-radius: 4px;
+  /*width 960px!!!!*/
+}
+
+.pleaseWait {
+  font-size: 40px;
+  font-weight: 900;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+}

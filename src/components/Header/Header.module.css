@@ -1,0 +1,39 @@
+.header {
+  grid-area: h;
+  background-color: #fff;
+  border: 1px solid gray;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.header a {
+  width: 60px;
+  height: 60px;
+}
+
+.header img {
+  height: 60px;
+  display: inline-block;
+  margin: 10px auto 10px 50px;
+}
+
+.loginButton {
+  margin: auto;
+}
+
+.loginButton button {
+  height: 50px;
+  width: 100px;
+}
+
+
+/* .profile {
+  margin-left: 100px;
+} */
+
+.profileImg {
+  padding-left: 130px;
+  padding-top: auto;
+  padding-bottom: auto;
+}

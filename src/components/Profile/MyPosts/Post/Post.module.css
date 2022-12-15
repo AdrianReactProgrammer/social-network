@@ -1,0 +1,23 @@
+.post {
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+.post img {
+  width: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.likeButton {
+  color: red
+}
+
+.nameAge {
+  color: black;
+}
+
+.content {
+  color: black;
+  font-weight: bold;
+}
