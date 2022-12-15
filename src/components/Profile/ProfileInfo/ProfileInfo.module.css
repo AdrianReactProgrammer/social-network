@@ -1,0 +1,66 @@
+.wrapper img {
+  width: 970px;
+}
+
+/* .avatar {
+  width: 200px;
+  display: inline-block;
+} */
+
+.avatar img {
+  width: 200px;
+  background-color: aqua;
+  margin-top: 10px;
+  margin-left: 10px;
+  border: 2px solid gray;
+}
+
+.name {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.content {
+  margin-bottom: 50px;
+  border-bottom: 1px solid gray;
+  padding-bottom: 10px;
+}
+
+
+.avatarInfoContainer {
+  display: grid;
+  grid-template-columns: 240px 2fr 1fr;
+}
+
+
+.status {
+  margin-bottom: 10px;
+  font-size: large;
+}
+
+.editStatus {
+  resize: none;
+  width: 400px;
+	height: 20px;
+  font-size: large;
+}
+
+
+.lookingJobImg {
+  width: 50px;
+  margin-left: 1px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.contactsItems {
+  margin-top: 10px;
+  border-left: 1px solid gray;
+  padding-left: 10px; 
+}
+
+.contact {
+  text-decoration: none;
+  color: rgb(61, 25, 219);
+  font-size: 20px;
+}

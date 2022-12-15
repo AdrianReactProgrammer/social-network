@@ -1,0 +1,11 @@
+.content {
+  padding: 10px;
+}
+
+.loginButton {
+  background-color: aqua;
+}
+
+.logoutButton {
+  background-color: brown;
+}

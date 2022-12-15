@@ -1,0 +1,25 @@
+.message {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 90px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  margin-left: 10px;
+  display: block;
+}
+
+.messageContent {
+  padding: 0;
+  margin: 0;
+  display: block;
+  align-self: center;
+}
+
+.me {
+  margin: 200px;
+}
