@@ -39,7 +39,7 @@ let mstp = (state) => ({
 let ProfileContainer = compose(
     connect(mstp, { getProfile, getStatus, setStatus }),
     withRouter,
-    withAuthRedirect
+    // withAuthRedirect
 )(ProfileClassContainer)
 
 // let WithAuthRedirectContainer = withAuthRedirect(ProfileClassContainer)

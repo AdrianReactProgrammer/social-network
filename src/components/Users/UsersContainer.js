@@ -63,7 +63,7 @@ const UsersContainer = compose(
     follow,
     unfollow
   }),
-  withAuthRedirect
+  // withAuthRedirect
 )(UsersClassContainer)
 
 export default UsersContainer

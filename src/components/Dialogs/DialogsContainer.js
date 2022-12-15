@@ -11,7 +11,7 @@ const mstp = (state) => ({
 
 let DialogsPageContainer = compose(
   connect(mstp, {sendMessage}),
-  withAuthRedirect
+  // withAuthRedirect
 )(DialogsPage)
 
 export default DialogsPageContainer

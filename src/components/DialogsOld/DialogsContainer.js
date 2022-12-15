@@ -15,7 +15,7 @@ let mstp = (state) => {
 
 let DialogsContainer = compose(
   connect(mstp, {addMessage, updateMessageText}),
-  withAuthRedirect
+  // withAuthRedirect
 )(Dialogs)
 
 // let withAuthRedirectContainer = withAuthRedirect(Dialogs)
