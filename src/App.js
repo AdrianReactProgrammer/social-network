@@ -77,7 +77,7 @@ let AppContainer = compose(
 
 let SocialNetworkApp = () => {
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>
