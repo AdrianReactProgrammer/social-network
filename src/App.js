@@ -38,9 +38,9 @@ const App = (props) => {
     props.getInitialized()
   }, [])
 
-  if (props.initialized == false) {
-    return <div role={'main'}><div className='pleaseWait'>PLEASE, WAIT...</div><Preloader isFetching={true} /></div>
-  } else {
+  // if (props.initialized == false) {
+  //   return <div role={'main'}><div className='pleaseWait'>PLEASE, WAIT...</div><Preloader isFetching={true} /></div>
+  // } else {
     return (
       <div className='app-wrapper' role={'main'} >
         <HeaderContainer />
@@ -64,7 +64,7 @@ const App = (props) => {
 
     );
   }
-}
+// }
 
 const mstp = (state) => ({
   initialized: state.app.initialized
@@ -77,7 +77,7 @@ let AppContainer = compose(
 
 let SocialNetworkApp = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Provider store={store}>
         <AppContainer />
       </Provider>
