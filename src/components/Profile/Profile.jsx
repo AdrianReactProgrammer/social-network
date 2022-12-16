@@ -5,7 +5,7 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 const Profile = (props) => {
     return (
         <div className={n.content}>
-            <ProfileInfo profile={props.profile} isFetching={props.isFetching} status={props.status} setStatus={props.setStatus} userId={props.params.userId} />
+            <ProfileInfo uploadPhoto={props.uploadPhoto} profile={props.profile} isFetching={props.isFetching} status={props.status} setStatus={props.setStatus} userId={props.params.userId} />
             <MyPostsContainer />
         </div>
     )

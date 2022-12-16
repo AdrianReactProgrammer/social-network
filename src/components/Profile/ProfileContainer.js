@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getProfile, getStatus, setStatus } from './../../redux/profile-reducer';
+import { getProfile, getStatus, setStatus, uploadPhoto } from './../../redux/profile-reducer';
 import Profile from './Profile'
 import { withAuthRedirect } from './../../hoc/withAuthRedirect';
 import withRouter from './../../commons/withRouter/withRouter';
@@ -37,7 +37,7 @@ let mstp = (state) => ({
 })
 
 let ProfileContainer = compose(
-    connect(mstp, { getProfile, getStatus, setStatus }),
+    connect(mstp, { getProfile, getStatus, setStatus, uploadPhoto }),
     withRouter,
     // withAuthRedirect
 )(ProfileClassContainer)

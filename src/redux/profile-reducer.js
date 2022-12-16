@@ -66,6 +66,16 @@ export const getStatusAC = (status) =>
   ({ type: GET_STATUS, status })
 export const setStatusAC = (status) =>
   ({ type: SET_STATUS, status })
+export const uploadPhotoSuccess = (image) => ({
+
+})
+
+
+export const uploadPhoto = (image) => async (dispatch) => {
+  let data = await profileAPI.uploadPhoto(image)
+  debugger
+  // if (data)
+}
 
 export const getProfile = (userId) => async (dispatch) => {
   let data = await profileAPI.getProfile(userId)
