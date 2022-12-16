@@ -16,6 +16,7 @@ const ProfileInfo = (props) => {
         <div className={n.avatarInfoContainer}>
           <div className={n.avatar}>
             <img src={props.profile.photos.large != null ? props.profile.photos.large : user} />
+            <input type={"file"} />
           </div>
           <div className={n.info}>
             <div className={n.name}>{props.profile.fullName}</div>
