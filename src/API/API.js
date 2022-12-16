@@ -33,8 +33,14 @@ export let profileAPI = {
   setStatus(status) {
     return instance.put(`profile/status`, { status: status }).then(responce => responce.data)
   },
-  uploadPhoto(image) {
-    return instance.put(`profile/photo`, { image: image }).then(responce => responce.data)
+  uploadPhoto(imageFile) {
+    const formData = new FormData()
+    formData.append("image", imageFile)
+    return instance.put(`profile/photo`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'        
+      }
+    }).then(responce => responce.data)
   }
 }
 

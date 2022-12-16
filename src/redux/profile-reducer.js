@@ -6,6 +6,7 @@ const SET_USER_PROFILE = 'SET-USER-PROFILE'
 const SET_IS_FETCHING = 'SET-IS-FETCHING'
 const GET_STATUS = 'GET-STATUS'
 const SET_STATUS = 'SET-STATUS'
+const SET_ID = "SET-ID"
 
 let initialState = {
   posts: [
@@ -19,7 +20,7 @@ let initialState = {
   newPostText: '',
   profile: null,
   isFetching: true,
-  status: null
+  status: null,
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -44,6 +45,8 @@ const profileReducer = (state = initialState, action) => {
       }
     case SET_USER_PROFILE:
       return state = { ...state, profile: action.profile }
+    // case SET_UPLOADED_PHOTO:
+    //   return state = {...state,  }
     case SET_IS_FETCHING:
       return state = { ...state, isFetching: false }
     case GET_STATUS:
@@ -66,21 +69,22 @@ export const getStatusAC = (status) =>
   ({ type: GET_STATUS, status })
 export const setStatusAC = (status) =>
   ({ type: SET_STATUS, status })
-export const uploadPhotoSuccess = (image) => ({
-
-})
 
 
-export const uploadPhoto = (image) => async (dispatch) => {
+export const uploadPhoto = (image, userId) => async (dispatch) => {
   let data = await profileAPI.uploadPhoto(image)
-  debugger
-  // if (data)
+  if (data.resultCode === 0) {
+    dispatch(getProfile(userId))
+  }
 }
 
-export const getProfile = (userId) => async (dispatch) => {
-  let data = await profileAPI.getProfile(userId)
-  dispatch(setUserProfile(data))
-  dispatch(setIsFetching(false))
+export const getProfile = (userId) => {
+  return (
+    async (dispatch) => {
+      let data = await profileAPI.getProfile(userId)
+      dispatch(setUserProfile(data))
+      dispatch(setIsFetching(false))
+    })
 }
 
 
@@ -91,7 +95,7 @@ export const getStatus = (userId) => async (dispatch) => {
 
 export const setStatus = (status) => async (dispatch) => {
   let data = await profileAPI.setStatus(status)
-  if (data.resultCode != 1) {
+  if (data.resultCode === 0) {
     dispatch(setStatusAC(status))
   }
 }

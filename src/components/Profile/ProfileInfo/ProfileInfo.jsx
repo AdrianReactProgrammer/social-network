@@ -7,14 +7,14 @@ const ProfileInfo = (props) => {
 
   let onMainPhotoSelect = (e) => {
     if (e.target.files.length) {
-      props.uploadPhoto(e.targer.files[0])
+      props.uploadPhoto(e.target.files[0], props.userId)
     }
   }
 
   if (props.profile === null) {
     return (
       <div className={styles.preloader}>
-        <Preloader isFetching={props.isFetching} userId={1} />
+        <Preloader isFetching={props.isFetching} />
       </div>
     )
   } else {
@@ -29,9 +29,9 @@ const ProfileInfo = (props) => {
             <div className={styles.name}>{props.profile.fullName}</div>
             <ProfileStatus status={props.status} setStatus={props.setStatus} />
             <div className={styles.lookingJob}>
-              <span className={styles.lookingForAJob}>Looking for a job:</span><br/>
+              <span className={styles.lookingForAJob}>Looking for a job:</span><br />
               <img className={styles.lookingJobImg} src={props.profile.lookingForAJob == true ? 'https://free-png.ru/wp-content/uploads/2021/06/free-png.ru-39.png'
-                : 'https://free-png.ru/wp-content/uploads/2021/06/free-png.ru-38-340x340.png'} /><br/>
+                : 'https://free-png.ru/wp-content/uploads/2021/06/free-png.ru-38-340x340.png'} /><br />
               <span className={styles.jobStatusDescription}>{props.profile.lookingForAJobDescription}</span>
             </div>
           </div>

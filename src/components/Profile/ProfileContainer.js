@@ -24,8 +24,9 @@ const ProfileClassContainer = (props) => {
         props.getStatus(userId)
     })
 
+
     return <>
-        <Profile {...props} /> 
+        <Profile {...props} />
     </>
 }
 

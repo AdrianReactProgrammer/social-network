@@ -1,4 +1,5 @@
 import { authAPI } from "../API/API"
+import { setUserIdInProfileReducer } from "./profile-reducer"
 
 const SET_USER_DATA = 'SET-USER-DATA'
 const SET_IS_AUTH = 'SET-IS-AUTH'
