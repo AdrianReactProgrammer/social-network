@@ -8,6 +8,7 @@ const SET_IS_FETCHING = 'SET-IS-FETCHING'
 const GET_STATUS = 'GET-STATUS'
 const SET_STATUS = 'SET-STATUS'
 const UPLOAD_PHOTO_SUCCESS = "UPLOAD-PHOTO-SUCCESS"
+const TOGGLE_UPLOADED_STATUS = "TOGGLE-UPLOADED-STATUS"
 
 let initialState = {
   posts: [],
@@ -33,6 +34,7 @@ let initialState = {
       large: null
     }
   },
+  uploaded: false,
   // profile: {
   //   photos: {
   //     large: null,
@@ -73,6 +75,8 @@ const profileReducer = (state = initialState, action) => {
       return state = { ...state, status: action.status }
     case UPLOAD_PHOTO_SUCCESS:
       return state = { ...state, profile: { ...state.profile, photos: action.photos } }
+    case TOGGLE_UPLOADED_STATUS:
+      return state = { ...state, uploaded: action.status }
     default: return state
   }
 }
@@ -91,7 +95,21 @@ export const setStatusAC = (status) =>
   ({ type: SET_STATUS, status })
 export const uploadPhotoSuccess = (photos) =>
   ({ type: UPLOAD_PHOTO_SUCCESS, photos })
+export const toggleUploadedStatus = (status) =>
+  ({ type: TOGGLE_UPLOADED_STATUS, status })
 
+
+export const changeProfileInfoThunk = (requestData) => {
+  debugger
+  return (
+    async (dispatch) => {
+      debugger
+      let data = await profileAPI.changeProfileInfo(requestData)
+      if (data.resultCode === 0) {
+        dispatch(toggleUploadedStatus(true))
+      }
+    })
+}
 
 export const uploadPhoto = (image) => {
   return (

@@ -41,6 +41,9 @@ export let profileAPI = {
         'Content-Type': 'multipart/form-data'        
       }
     }).then(responce => responce.data)
+  },
+  changeProfileInfo(requestData) {
+    return instance.put('profile', {requestData}).then(responce => responce.data)
   }
 }
 

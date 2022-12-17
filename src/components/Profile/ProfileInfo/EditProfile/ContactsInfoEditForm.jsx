@@ -1,12 +1,28 @@
 import styles from "./EditProfileInfo.module.css"
 import { useForm } from 'react-hook-form'
-import changeContactsInfo from '../../../../redux/profile-reducer'
+import { changeProfileInfoThunk } from '../../../../redux/profile-reducer'
 
 const ContactsInfoEditForm = (props) => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = (data) => {
-    console.log(data)
-    changeContactsInfo(data)
+    const requestData = {
+      userId: props.userId,
+      lookingForAJob: props.lookingForAJob,
+      lookingForAJobDescription: props.lookingForAJobDescription,
+      fullName: props.fullName,
+      contacts: {
+        github: data.github,
+        vk: data.vk,
+        facebook: data.facebook,
+        instagram: data.instagram,
+        twitter: data.twitter,
+        website: data.website,
+        youtube: data.youtube,
+        mainLink: data.mainLink
+      }
+    }
+    console.log(requestData)
+    changeProfileInfoThunk(1)
   }
 
   return (
