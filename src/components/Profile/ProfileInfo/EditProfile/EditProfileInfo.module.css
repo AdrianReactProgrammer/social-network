@@ -1,10 +1,80 @@
 .editProfileInfo {
   padding: 10px;
+  padding-left: 75px;
 }
 
-.editProfileInfo h2 {
+.editProfileInfoH {
   margin: 0;
   padding: 0;
+  padding-left: 75px;
+  padding-bottom: 5px;
   font-weight: 400;
   border-bottom: 1px solid gray;
+}
+
+.contactsInfoEditFormH {
+  font-weight: 400;
+}
+
+.contactsInfoEditForm {
+  border: 1px solid gray;
+  box-shadow: 0px 0px 10px gray;
+  padding: 10px;
+}
+
+.contactInput {
+  border-radius: 0%;
+}
+
+.contactInputContainer {
+  display: grid;
+}
+
+.fullNameInput {
+  display: block;
+  border-radius: 0%;
+  width: 194px;
+}
+
+.lookingForAJobDescriptionInput {
+  display: block;
+  border-radius: 0%;
+  width: 194px;
+  margin-top: 5px;
+}
+
+.fullNameContainer {
+  margin-top: 20px;
+}
+
+.LookingForAJobContainer {
+  margin-top: 20px;
+}
+
+.MainInfoEditForm label {
+  display: block
+}
+
+.LookingForAJobSelector {
+  width: 200px;
+  text-align: center;
+}
+
+.lookingForAJobDescriptionLabel {
+  font-size: small;
+}
+
+.saveInfoButton {
+  margin-top: 10px;
+  width: 200px;
+  border-radius: 0%;
+}
+
+.saveInfoButton:hover {
+  background-color: rgb(161, 161, 161);
+}
+
+.editProfileInfo {
+  display: grid;
+  grid-template-columns: 3fr 7fr;
 }

@@ -10,14 +10,7 @@ const SET_STATUS = 'SET-STATUS'
 const UPLOAD_PHOTO_SUCCESS = "UPLOAD-PHOTO-SUCCESS"
 
 let initialState = {
-  posts: [
-    { id: 1, name: 'Dima', age: 30, post: 'Crazy!', likesCount: 15 },
-    { id: 2, name: 'Adrian', age: 17, post: 'Yeh, you are right!', likesCount: 6 },
-    { id: 3, name: 'Evgeny', age: 5, post: 'Oh, no... My mother is dead and i lose my brains(((', likesCount: 0 },
-    { id: 4, name: 'Liza', age: 25, post: 'Suck my big D, loooozers xD', likesCount: -11 },
-    { id: 5, name: 'VIKING', age: 999, post: 'I\'M VIKING WUAAAAAH', likesCount: 99999 },
-    { id: 5, name: 'Slavik', age: 0, post: 'I hate you, Adrian', likesCount: -10000 }
-  ],
+  posts: [],
   newPostText: '',
   profile: {
     aboutMe: null,

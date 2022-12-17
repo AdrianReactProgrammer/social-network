@@ -5,22 +5,45 @@ const MainInfoEditForm = (props) => {
 
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
-
-  console.log(watch("example")); // watch input value by passing the name of it
+  const onSubmit = (data) => {
+    console.log(data)
+    let mainInfo = {
+      fullName: data.fullName.length > 0 ? data.fullName : props.fullName,
+      lookingForAJob: data.lookingForAJob,
+      lookingForAJobDescription: data.lookingForAJobDescription.length > 0 ? data.lookingForAJobDescription : null,
+    }
+    console.log(mainInfo)
+  }
 
   return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input defaultValue="test" {...register("")} />
-
-      {/* include validation with required or other standard HTML validation rules */}
-      <input {...register("exampleRequired", { required: true })} />
-      {/* errors will return when field validation fails  */}
-      {errors.exampleRequired && <span>This field is required</span>}
-
-      <input type="submit" />
-    </form>
+    <div className={styles.MainInfoEditForm}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.fullNameContainer}>
+          <label>Fullname</label>
+          <input
+            defaultValue={props.fullName}
+            {...register("fullName")}
+            className={styles.fullNameInput} />
+        </div>
+        <div className={styles.LookingForAJobContainer}>
+          <label>Looking for a job?</label>
+          <select {...register("lookingForAJob")} className={styles.LookingForAJobSelector}>
+            <option value={props.lookingForAJob}>
+              {props.lookingForAJob ? 'Yes' : 'No!'}
+            </option>
+            <option value={props.lookingForAJob ? false : true}>
+              {props.lookingForAJob ? 'No!' : 'Yes'}
+            </option>
+          </select>
+          <label className={styles.lookingForAJobDescriptionLabel} >description:</label>
+          <input
+            defaultValue={props.lookingForAJobDescription}
+            {...register("lookingForAJobDescription")}
+            className={styles.lookingForAJobDescriptionInput} />
+        </div>
+        <input value="Save" type="submit" className={styles.saveInfoButton} />
+      </form>
+    </div>
   );
 
 
