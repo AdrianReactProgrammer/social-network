@@ -26,7 +26,7 @@ const ProfileStatusNew = (props) => {
   }
 
   return <>
-    {!editMode && <span className={n.status} onDoubleClick={activateEditMode}>
+    {!editMode && <span className={n.status} onDoubleClick={props.authUserId == props.userId ? activateEditMode : null}>
       {props.status != null ? props.status : 'Введите статус'}
     </span>}
     {editMode && <textarea className={n.editStatus} value={status} autoFocus={true} onBlur={deactivateEditMode} onChange={onStatusChange} />}

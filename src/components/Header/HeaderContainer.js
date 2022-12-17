@@ -1,18 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
+import { compose } from 'redux';
 
-const HeaderClassContainer = (props) => {
+const HeaderContainer = (props) => {
+    debugger
     return (
-        <Header isAuth={props.data.isAuth} />
+        <Header isAuth={props.data.isAuth} photo={props.photo}  authUserId={props.authUserId} key={10000} />
     )
 };
 
 
 let mstp = (state) => ({
-    data: state.userAuth
+    data: state.userAuth,
+    photo: state.profilePage.profile.photos.small,
+    authUserId: state.userAuth.id
 })
 
-let HeaderContainer = connect(mstp)(HeaderClassContainer)
-
-export default HeaderContainer;
+export default connect(mstp)(HeaderContainer)

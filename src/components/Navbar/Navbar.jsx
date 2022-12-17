@@ -1,13 +1,15 @@
 import { NavLink } from 'react-router-dom';
 import Sidebar from '../Sidebar/Sidebar';
 import n from './Navbar.module.css';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
 
 const Navbar = (props) => {
 
   return (
     <nav className={n.nav}>
       <div className={`${n.item} ${n.active}`}>
-        <NavLink to='/profile/me' className={navData => navData.isActive ? n.active : n.item}>Profile</NavLink>
+        <NavLink to={'/profile/' + props.userId} className={navData => navData.isActive ? n.active : n.item}>Profile</NavLink>
       </div>
       <div className={`${n.item} ${n.active}`}>
         <NavLink to='/news' className={navData => navData.isActive ? n.active : n.item}>News</NavLink>
@@ -32,4 +34,10 @@ const Navbar = (props) => {
   )
 };
 
-export default Navbar;
+let mstp = (state) => ({
+  userId: state.userAuth.id
+})
+
+export default compose(
+  connect(mstp)
+)(Navbar);

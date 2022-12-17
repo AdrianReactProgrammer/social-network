@@ -1,6 +1,6 @@
 .preloader {
     margin-bottom: 20px;
-    width: 100px;
+    /* width: 100px; */
 }
 
 .preloaderContainer {
@@ -9,7 +9,7 @@
     margin-right: auto;
     padding-left: auto;
     padding-right: auto;
-    text-align: center;
+    /* text-align: center;
     align-items: center;
-    align-content: center;
+    align-content: center; */
 }

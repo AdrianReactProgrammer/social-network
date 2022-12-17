@@ -26,7 +26,7 @@ const UsersClassContainer = (props) => {
 
   return (
     <>
-      <Preloader isFetching={props.isFetching} />
+      {/* <Preloader isFetching={props.isFetching} width={'100'} /> */}
       <Users
         pageSize={props.pageSize}
         totalUsersCount={props.totalUsersCount}
@@ -40,6 +40,7 @@ const UsersClassContainer = (props) => {
         toggleFollowingStatus={props.toggleFollowingStatus}
         setCurrentPage={props.setCurrentPage}
       />
+      <Preloader isFetching={props.isFetching} width={'100'} />
     </>
   )
 }

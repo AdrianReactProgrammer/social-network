@@ -1,0 +1,10 @@
+.editProfileInfo {
+  padding: 10px;
+}
+
+.editProfileInfo h2 {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  border-bottom: 1px solid gray;
+}

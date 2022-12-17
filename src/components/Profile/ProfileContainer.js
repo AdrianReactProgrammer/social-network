@@ -14,13 +14,13 @@ import { getStatusS, getProfileS } from './../../redux/selectors/profile-selecto
 const ProfileClassContainer = (props) => {
 
     useEffect(() => {
-        let userId = props.params.userId === 'me' ? 26362 : props.params.userId
+        let userId = props.params.userId
         props.getProfile(userId)
         props.getStatus(userId)
-    }, [])
+    }, [props.params.userId])
 
     useEffect(() => {
-        let userId = props.params.userId === 'me' ? 26362 : props.params.userId
+        let userId = props.params.userId
         props.getStatus(userId)
     })
 
@@ -34,7 +34,8 @@ let mstp = (state) => ({
     profile: getProfileS(state),
     isFetching: getIsFetching(state),
     isAuth: getIsAuth(state),
-    status: getStatusS(state)
+    status: getStatusS(state),
+    authUserId: state.userAuth.id
 })
 
 let ProfileContainer = compose(

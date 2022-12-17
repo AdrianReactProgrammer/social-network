@@ -6,7 +6,8 @@ const Profile = (props) => {
     return (
         <div className={n.content}>
             <ProfileInfo
-                userId={props.userId}
+                authUserId={props.authUserId}
+                userId={props.params.userId}
                 uploadPhoto={props.uploadPhoto}
                 profile={props.profile} isFetching={props.isFetching}
                 status={props.status}
