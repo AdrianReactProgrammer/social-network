@@ -2,6 +2,7 @@ import styles from './EditProfileInfo.module.css'
 import MainInfoEditForm from './MainInfoEditForm'
 import ContactsInfoEditForm from './ContactsInfoEditForm'
 import { connect } from 'react-redux';
+import { changeProfileInfoThunk } from './../../../../redux/profile-reducer';
 
 const EditProfileInfo = (props) => {
   return (
@@ -22,6 +23,7 @@ const EditProfileInfo = (props) => {
             youtube={props.youtube}
             mainLink={props.mainLink}
             userId={props.userId}
+            changeInfo={props.changeProfileInfoThunk}
           />
         </div>
         <div>
@@ -38,9 +40,19 @@ const EditProfileInfo = (props) => {
             youtube={props.youtube}
             mainLink={props.mainLink}
             userId={props.userId}
+            changeInfo={props.changeProfileInfoThunk}
           />
         </div>
       </div>
+      {
+        props.uploaded == true
+          ? <div className={styles.successNotification} >
+            <span>editing successful</span>
+          </div>
+          : props.uploaded == false ? <div className={styles.errorNotification}>
+            <span>something wrong</span>
+          </div> : null
+      }
     </div>
   )
 }
@@ -57,7 +69,8 @@ const mstp = (state) => ({
   twitter: state.profilePage.profile.contacts.twitter,
   website: state.profilePage.profile.contacts.website,
   youtube: state.profilePage.profile.contacts.youtube,
-  mainLink: state.profilePage.profile.contacts.mainLink
+  mainLink: state.profilePage.profile.contacts.mainLink,
+  uploaded: state.profilePage.uploaded
 })
 
-export default connect(mstp)(EditProfileInfo)
+export default connect(mstp, { changeProfileInfoThunk })(EditProfileInfo)

@@ -43,7 +43,8 @@ export let profileAPI = {
     }).then(responce => responce.data)
   },
   changeProfileInfo(requestData) {
-    return instance.put('profile', {requestData}).then(responce => responce.data)
+    debugger
+    return instance.put('profile', {...requestData}).then(responce => responce.data)
   }
 }
 

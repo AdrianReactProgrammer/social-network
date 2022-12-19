@@ -9,8 +9,10 @@ const GET_STATUS = 'GET-STATUS'
 const SET_STATUS = 'SET-STATUS'
 const UPLOAD_PHOTO_SUCCESS = "UPLOAD-PHOTO-SUCCESS"
 const TOGGLE_UPLOADED_STATUS = "TOGGLE-UPLOADED-STATUS"
+const SET_USER_PROFILE_AFTER_UPDATE_INFO = "SET-USER-PROFILE-AFTER-UPDATE-INFO"
 
 let initialState = {
+  aboutMe: null,
   posts: [],
   newPostText: '',
   profile: {
@@ -34,13 +36,7 @@ let initialState = {
       large: null
     }
   },
-  uploaded: false,
-  // profile: {
-  //   photos: {
-  //     large: null,
-  //     small: null
-  //   }
-  // },
+  uploaded: null,
   isFetching: true,
   status: null,
 }
@@ -67,6 +63,17 @@ const profileReducer = (state = initialState, action) => {
       }
     case SET_USER_PROFILE:
       return state = { ...state, profile: action.profile }
+    case SET_USER_PROFILE_AFTER_UPDATE_INFO:
+      return state = {
+        ...state, profile: {
+          ...state.profile,
+          lookingForAJob: action.profile.lookingForAJob,
+          lookingForAJobDescription: action.profile.lookingForAJobDescription,
+          fullName: action.profile.fullName,
+          aboutMe: action.profile.aboutMe,
+          contacts: action.profile.contacts
+        }
+      }
     case SET_IS_FETCHING:
       return state = { ...state, isFetching: false }
     case GET_STATUS:
@@ -97,6 +104,8 @@ export const uploadPhotoSuccess = (photos) =>
   ({ type: UPLOAD_PHOTO_SUCCESS, photos })
 export const toggleUploadedStatus = (status) =>
   ({ type: TOGGLE_UPLOADED_STATUS, status })
+export const setUserProfileAfterUpdateInfo = (profile) =>
+  ({ type: SET_USER_PROFILE_AFTER_UPDATE_INFO, profile })
 
 
 export const changeProfileInfoThunk = (requestData) => {
@@ -105,8 +114,12 @@ export const changeProfileInfoThunk = (requestData) => {
     async (dispatch) => {
       debugger
       let data = await profileAPI.changeProfileInfo(requestData)
+      debugger
       if (data.resultCode === 0) {
+        dispatch(setUserProfileAfterUpdateInfo(requestData))
         dispatch(toggleUploadedStatus(true))
+      } else {
+        dispatch(toggleUploadedStatus(false))
       }
     })
 }

@@ -8,6 +8,7 @@ const MainInfoEditForm = (props) => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = (data) => {
     const requestData = {
+      aboutMe: data.aboutMe ? data.aboutMe : "AbouTmwen(((",
       userId: props.userId,
       lookingForAJob: data.lookingForAJob == 'true' ? true : false,
       lookingForAJobDescription: data.lookingForAJobDescription.length > 0 ? data.lookingForAJobDescription : null,
@@ -23,7 +24,7 @@ const MainInfoEditForm = (props) => {
         mainLink: props.mainLink
       }
     }
-    changeProfileInfoThunk(requestData)
+    props.changeInfo(requestData)
   }
 
   return (
@@ -35,6 +36,13 @@ const MainInfoEditForm = (props) => {
             defaultValue={props.fullName}
             {...register("fullName")}
             className={styles.fullNameInput} />
+        </div>
+        <div className={styles.aboutMeContainer}>
+          <label>about me</label>
+          <input
+            defaultValue={props.aboutMe}
+            {...register("aboutMe")}
+            className={styles.aboutMeInput} />
         </div>
         <div className={styles.LookingForAJobContainer}>
           <label>Looking for a job?</label>
